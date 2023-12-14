@@ -1,7 +1,8 @@
 package com.apirestmongo.persistenciayseguridadapirest.domain.dto;
 
+import com.apirestmongo.persistenciayseguridadapirest.domain.entity.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public record BookingDto(
         String id,

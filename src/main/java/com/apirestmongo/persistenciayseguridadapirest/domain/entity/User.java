@@ -1,29 +1,20 @@
 package com.apirestmongo.persistenciayseguridadapirest.domain.entity;
 
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.util.Objects;
 
+
+@Document(collection = "user")
 @Getter
 @Setter
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Entity
 public class User {
 
-    @Id
-    @SequenceGenerator(
-            name = "user_id_sequence",
-            sequenceName = "user_id_sequence"
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_id_sequence"
-    )
-    private Integer id;
+    @MongoId
+    private String id;
     private String firstName;
     private String lastName;
     private Integer age;

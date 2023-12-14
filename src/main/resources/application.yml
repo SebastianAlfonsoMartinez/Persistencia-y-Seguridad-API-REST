@@ -6,5 +6,5 @@ spring:
       ddl-auto: update
   data:
     mongodb:
-      uri: mongodb+srv://spring-mongo:JrhMyBJXGEmfR86c@practicamongogrupal.fro0lfs.mongodb.net/
+      uri: mongodb+srv://spring-mongo:JrhMyBJXGEmfR86c@practicamongogrupal.fro0lfs.mongodb.net/bookings
       auto-index-creation: true

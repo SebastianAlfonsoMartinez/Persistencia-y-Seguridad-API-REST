@@ -13,6 +13,7 @@ public record UserService(
 
     public void createUser(UserDto userDto){
         User user = User.builder()
+                .id(userDto.id())
                 .firstName(userDto.firstName())
                 .lastName(userDto.lastName())
                 .age(userDto.age())
@@ -26,11 +27,11 @@ public record UserService(
         return userRepository.findAll();
     }
 
-    public User findUserById(Integer id){
+    public User findUserById(String id){
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found..."));
     }
 
-    public void deleteUser(Integer id) {
+    public void deleteUser(String id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found..."));
         userRepository.delete(user);
     }

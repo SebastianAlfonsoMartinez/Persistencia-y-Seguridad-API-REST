@@ -2,6 +2,7 @@ package com.apirestmongo.persistenciayseguridadapirest.service;
 
 import com.apirestmongo.persistenciayseguridadapirest.domain.dto.BookingDto;
 import com.apirestmongo.persistenciayseguridadapirest.domain.entity.Booking;
+import com.apirestmongo.persistenciayseguridadapirest.domain.entity.User;
 import com.apirestmongo.persistenciayseguridadapirest.domain.repository.BookingRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,10 @@ public record BookingService(
 
     public void createBooking(BookingDto bookingDto){
         Booking booking = Booking.builder()
+                .id(bookingDto.id())
                 .state(bookingDto.state())
                 .quantity(bookingDto.quantity())
+                .user((User) bookingDto.user())
                 .build();
         bookingRepository.save(booking);
     }
@@ -42,7 +45,7 @@ public record BookingService(
 
     private void updateBookingDate(Booking booking, BookingDto bookingDto) {
 
-        booking.setUser(bookingDto.user());
+        booking.setUser((User) bookingDto.user());
         booking.setState(bookingDto.state());
         booking.setQuantity(bookingDto.quantity());
 
