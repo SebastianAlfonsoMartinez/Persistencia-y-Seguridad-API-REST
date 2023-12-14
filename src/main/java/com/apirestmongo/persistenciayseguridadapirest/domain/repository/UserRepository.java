@@ -1,4 +1,9 @@
 package com.apirestmongo.persistenciayseguridadapirest.domain.repository;
 
-public interface UserRepository {
+import com.apirestmongo.persistenciayseguridadapirest.domain.entity.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface UserRepository extends MongoRepository<User, String> {
+
+
 }
